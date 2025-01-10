@@ -17,12 +17,13 @@ function updateRates() {
     loadRates(baseCurrency).then(data => {
         rates = data;
     });
+    console.log(rates); // Test purposes
 }
 
 updateRates();
+
 currencyOneType.addEventListener('change', updateRates);
 
 swap.addEventListener('click', () => {
-    let currencyTwoTypeValue = currencyTwoType.value;
-    currencyTwo.value = currencyOne.value * rates.conversion_rates[currencyTwoTypeValue];
+    currencyTwo.value = currencyOne.value * rates.conversion_rates[currencyTwoType.value];
 });
