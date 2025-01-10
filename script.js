@@ -12,12 +12,11 @@ let currencyOneType = document.getElementById('currency-one');
 let currencyTwoType = document.getElementById('currency-two');
 
 let rates;
-function updateRates() {
+async function updateRates() {
     let baseCurrency = currencyOneType.value;
-    loadRates(baseCurrency).then(data => {
-        rates = data;
-    });
+    rates = await loadRates(baseCurrency);
     console.log(rates); // Test purposes
+
 }
 
 updateRates();
